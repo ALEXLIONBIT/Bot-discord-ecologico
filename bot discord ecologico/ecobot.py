@@ -18,7 +18,9 @@ async def lista(ctx):
         "• eco.lista\n"
         "• eco.consigli\n"
         "• eco.plastica\n"
-        "• eco.vetro"
+        "• eco.vetro\n"
+        "• eco.ai <domanda alla AI>\n"
+        "• eco.carta"
     )
 
 ambiente_list = [
@@ -257,8 +259,134 @@ vetro_list = [
 @bot.command()
 async def vetro(ctx):
     await ctx.send("Ecco un consiglio per ridurre il vetro: " + random.choice(vetro_list))
+carta_list = [
+    "📄 Riduci l’uso della carta",
+    "📝 Scrivi solo quando necessario",
+    "📖 Usa entrambi i lati della carta",
+    "🖨️ Stampa solo se serve",
+    "♻️ Ricicla tutta la carta usata",
+    "📚 Compra quaderni riciclati",
+    "✂️ Riusa carta per appunti veloci",
+    "📦 Evita imballaggi di carta inutili",
+    "📬 Preferisci bollette digitali",
+    "📰 Riutilizza vecchi giornali",
+    "🧾 Riduci scontrini cartacei",
+    "🖋️ Preferisci note digitali",
+    "🗂️ Organizza documenti senza stampare",
+    "📃 Ricicla vecchi appunti",
+    "📦 Usa scatole di cartone riciclato",
+    "📦 Riusa pacchi e scatole",
+    "🖨️ Imposta stampa fronte/retro",
+    "📄 Non sprecare fogli bianchi",
+    "🗑️ Evita buttare carta buona",
+    "🖨️ Ottimizza layout di stampa",
+    "📄 Fai bozze su carta usata",
+    "📖 Dona libri usati",
+    "📚 Scambia libri con amici",
+    "✂️ Riusa carta per disegni",
+    "📝 Preferisci quaderni a riempimento completo",
+    "📦 Usa carta da pacco riciclata",
+    "♻️ Separare carta e cartone dai rifiuti",
+    "📄 Evita volantini pubblicitari",
+    "📄 Chiedi digitale invece di stampato",
+    "📰 Usa giornali per pulizie domestiche",
+    "📚 Compra carta certificata FSC",
+    "📖 Leggi e presta libri invece di comprare nuovi",
+    "📦 Imballaggi: preferisci cartone riciclabile",
+    "🖨️ Stampa PDF solo se indispensabile",
+    "📝 Appunti: scrivi a mano solo se utile",
+    "♻️ Carta da ufficio: riciclata è meglio",
+    "📄 Usa quaderni multipagina",
+    "🖋️ Penne ricaricabili invece di monouso",
+    "📖 Non buttare libri danneggiati, riparali",
+    "📦 Riutilizza scatole per conservare",
+    "📰 Carta straccia: riciclala",
+    "📄 Riduci note adesive inutili",
+    "📝 Digitalizza documenti vecchi",
+    "📚 Biblioteche e scambi di libri",
+    "✂️ Fai collage con carta usata",
+    "🖨️ Usa font piccoli per risparmiare carta",
+    "📄 Stampa solo pagine necessarie",
+    "📦 Carta per imballaggi: riusa più volte",
+    "📖 Evita libri con copertina inutile",
+    "📝 Appunti online quando possibile",
+    "📄 Fai liste digitali",
+    "♻️ Carta colorata: ricicla separatamente",
+    "📚 Non buttare quaderni quasi vuoti",
+    "📦 Scatole di cartone: piega e ricicla",
+    "📖 Leggi libri digitali",
+    "🖋️ Preferisci matite a penne usa e getta",
+    "📝 Riusa fogli per schizzi",
+    "📄 Evita stampare email inutili",
+    "📚 Dai libri usati a scuole o associazioni",
+    "📦 Imballaggi regalo: usa carta riciclata",
+    "📰 Giornali: usali per rivestire superfici",
+    "🖨️ Usa modalità bozza in stampa",
+    "📄 Evita carta plastificata",
+    "📚 Prenditi cura dei libri per farli durare",
+    "📝 Scrivi appunti digitali",
+    "♻️ Fai compost con carta non lucida",
+    "📦 Riusa carta e cartone in bricolage",
+    "📄 Riduci flyer pubblicitari",
+    "📚 Dona libri alle biblioteche",
+    "📖 Scambia libri con amici",
+    "📦 Usa scatole di cartone multiple volte",
+    "📝 Appunti e schizzi su carta riciclata",
+    "📄 Non buttare fogli solo per piccole correzioni",
+    "📚 Fai scaffali per libri usati",
+    "🖨️ Stampa fronte/retro sempre",
+    "📦 Imballaggi regalo: riusa carta già utilizzata",
+    "📖 Leggi ebook invece di libri nuovi",
+    "📝 Appunti digitali salvati nel cloud",
+    "♻️ Carta da ufficio: riciclata o riutilizzata",
+    "📄 Usa fogli spaiati per bozze",
+    "📚 Scambia libri usati online",
+    "📰 Carta straccia per pulizie domestiche",
+    "📦 Cartone: riutilizza pacchi",
+    "📝 Fai note brevi su Post-it digitali",
+    "📄 Riduci volantini pubblicitari",
+    "📚 Compra libri usati",
+    "📖 Riusa pagine dei libri vecchi per arte",
+    "📦 Cartone: usa come base per pittura",
+    "📄 Fai bozze su fogli già stampati",
+    "📝 Digitalizza vecchi appunti",
+    "♻️ Carta di giornale: ricicla o compost",
+    "📚 Prestito libri invece di acquistare",
+    "📖 Leggi online quando possibile",
+    "📦 Riutilizza scatole per spedizioni",
+    "🖨️ Ottimizza stampa riducendo margini",
+    "📄 Usa carta monouso solo se necessario",
+    "📝 Note adesive: preferisci app digitali",
+    "📚 Scambia libri a scuola o in biblioteca",
+    "📦 Cartone: piega e ricicla correttamente",
+    "📖 Ebook e PDF: alternativa ecologica",
+    "📝 Appunti condivisi online",
+    "♻️ Carta lucida o patinata: smaltisci correttamente",
+    "📄 Fai liste digitali per ridurre fogli",
+    "📚 Dona libri in buono stato",
+    "📦 Carta da pacco: riutilizza più volte",
+    "📄 Non sprecare fogli bianchi",
+    "📝 Preferisci documenti digitali",
+    "📖 Biblioteca digitale: leggi ebook",
+    "📚 Scambi di libri fra amici",
+    "📦 Imballaggi: riusa carta di giornale",
+    "🖨️ Stampa solo pagine essenziali",
+    "📄 Usa quaderni fino all’ultima pagina",
+    "📝 Appunti a mano solo se necessario",
+    "♻️ Carta da ufficio: riciclata e riutilizzata",
+    "📚 Fai circolare libri usati",
+    "📖 Ebook: riduci spreco di carta",
+    "📦 Carta: riusa e ricicla sempre",
+    "📝 Fai bozze su fogli già utilizzati",
+    "📄 Riduci pubblicità cartacea"
+]
 
 
+    
+
+@bot.command()
+async def carta(ctx):
+    await ctx.send("Ecco un consiglio per ridurre la carta: " + random.choice(carta_list))
 
 async def chiedi_a_ollama(prompt):
     url = "http://localhost:11434/api/generate"
@@ -320,6 +448,5 @@ async def on_message(message):
 
 
     await bot.process_commands(message)
-
-
 bot.run("")
+

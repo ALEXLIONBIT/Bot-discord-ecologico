@@ -15,7 +15,7 @@ mettere token nel codice e avere bot nel portal developer di discord
 
 Windows 10/11, macOS o Linux (Ubuntu/Debian consigliato).
 
-Deve supportare Python 3.10+ (tu hai 3.14 quindi ok).
+Deve supportare Python 3.10+ 
 
  Hardware minimo consigliato:
 Componente	Minimo consigliato	                           

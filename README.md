@@ -4,7 +4,7 @@ per aprire il bot ecologico installa python e discord e anche  installare la lib
 
 
 # ATTENZIONE:
-avere ollama con modello AI gemma3:12b
+avere ollama con modello AI gemma3:12b e installare stable diffusion sul pc per le immagini
 
 # EVEDIENZIARE:
 mettere token nel codice e avere bot nel portal developer di discord

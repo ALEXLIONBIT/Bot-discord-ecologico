@@ -492,6 +492,109 @@ cartone_list = [
     "🖌️ Lavoretti artistici con cartone"
 ]
 
+umido_list = [
+    "🍌 Le bucce di banana sono perfette per il compost! Si decompongono velocemente 🌱",
+    "🍎 I torsoli di mela vanno nell'umido, mai nella plastica! ♻️",
+    "☕️ I fondi di caffè sono un ottimo concime naturale per le piante 🪴",
+    "🥚 I gusci d'uovo tritati arricchiscono il compost di calcio 🥚",
+    "🍊 Le bucce di agrumi ci vanno, ma con moderazione (acidificano il compost) 🍋",
+    "🥕 I resti di carote, zucchine e verdure crude sono benvenuti nell'umido 🥦",
+    "🍞 Il pane raffermo si può compostare, ma meglio spezzettarlo prima 🍞",
+    "🥬 Le foglie di insalata appassite sono ottime per il compost 🥗",
+    "🍅 I pomodori schiacciati o andati a male vanno nell'umido 🍅",
+    "🧅 Le bucce di cipolla sono compostabili, ma in piccole quantità 🧅",
+    "🥔 Le bucce di patata sono perfette per l'umido, lavale prima! 🥔",
+    "🍇 I raspi dell'uva e gli acini schiacciati finiscono nell'organico 🍇",
+    "🌿 Le erbe aromatiche appassite vanno nel compost, profumano pure! 🌱",
+    "🍓 I fragole ammuffite? Umido senza esitare! 🍓",
+    "🧄 L'aglio e le sue bucce sono compostabili al 100% 🧄",
+    "🥜 I gusci di noci e nocciole tritati vanno nell'umido (ma lentamente si decompongono) 🥜",
+    "🍯 Il miele cristallizzato si può buttare nell'umido in piccole quantità 🍯",
+    "🧀 Piccoli resti di formaggio fresco (non stagionato) possono andare nell'umido 🧀",
+    "🥛 Il latte scaduto va nell'umido, ma meglio diluirlo prima 🥛",
+    "🍳 I resti di uova strapazzate o omelette sono organici! 🍳",
+    "🍚 Il riso cotto avanzato è perfetto per il compost 🍚",
+    "🍝 La pasta cotta senza sugo va nell'umido ♻️",
+    "🥗 Gli avanzi di insalata condita (senza troppi oli) sono compostabili 🥗",
+    "🍲 I fondi di zuppa vegetale vanno nell'organico 🍲",
+    "🌽 Le pannocchie di mais sgranocchiate finiscono nell'umido 🌽",
+    "🍯 Le bucce di melone e anguria sono ottime per il compost 🍉",
+    "🥦 I gambi di broccoli e cavolfiori sono super compostabili 🥦",
+    "🍆 Le melanzane avanzate o bruciate? Umido! 🍆",
+    "🥒 I cetrioli ammuffiti vanno nell'organico 🥒",
+    "🌶️ I peperoni e i loro semi sono perfetti per il compost 🌶️",
+    "🍄 I funghi appassiti o avanzati sono compostabili 🍄",
+    "🥜 I gusci di arachidi sono ottimi per il compost 🥜",
+    "🍍 L'ananas e la sua corona fogliosa vanno nell'umido (tritati meglio) 🍍",
+    "🥑 Il nocciolo di avocado si può compostare, ma ci vuole tempo 🥑",
+    "🌰 Le castagne bollite avanzate sono organiche 🌰",
+    "🍐 Le pere troppo mature vanno nell'umido 🍐",
+    "🍑 Le pesche e le loro noccioli (schiacciati) sono compostabili 🍑",
+    "🥝 I kiwi e le loro bucce pelose finiscono nell'organico 🥝",
+    "🍋 I limoni spremuti e le bucce sono perfetti 🍋",
+    "🫐 I mirtilli ammuffiti? Umido subito 🫐",
+    "🍒 Le ciliegie e i loro noccioli (meglio tritati) vanno nell'umido 🍒",
+    "🧈 Piccoli resti di burro o margarina vegetale sono compostabili 🧈",
+    "🥖 I crostini di pane avanzati si decompongono facilmente 🥖",
+    "🧄 Le bucce di scalogno sono come quelle di cipolla 🧅",
+    "🥬 Le coste di bietola o spinaci appassiti sono ottime 🥬",
+    "🌱 I germogli troppo cresciuti vanno nel compost 🌱",
+    "🍌 Le banane troppo mature (anche nere) sono oro per il compost 🍌",
+    "🥕 Le foglie delle carote sono compostabili al 100% 🥕",
+    "🧹 I tovaglioli di carta usati (non sporchi di detersivi) vanno nell'umido 🧻",
+    "🌹 I fiori appassiti del vaso sono perfetti per il compost 🌸",
+    "☘️ Le foglie secche delle piante d'appartamento sono organiche ☘️",
+    "🍂 I piccoli rametti tritati possono andare nell'umido 🍂",
+    "🪴 La terra vecchia delle piante in vaso è compostabile 🪴",
+    "🧹 La segatura di legno non trattato è ottima per bilanciare l'umido 🪵",
+    "📄 La carta da cucina usata per asciugare frutta/verdura va nell'umido 📄",
+    "🍃 Le bustine di tè (senza graffette) sono compostabili 🍵",
+    "☕️ I filtri di carta del caffè vanno nell'umido ☕️",
+    "🥜 I gusci di pistacchi sono organici 🥜",
+    "🌰 Le bucce di mandorle e noci sono perfette 🌰",
+    "🍯 La cera d'api naturale (piccole quantità) è compostabile 🐝",
+    "🧀 I croste di parmigiano? No, quelle sono indifferenziata! ❌",
+    "🍖 La carne e il pesce NON vanno nell'umido in molti comuni! Controlla le regole locali 🚫",
+    "🦴 Le ossa non sono compostabili in casa 🦴",
+    "🥑 Le bucce di avocado sono sì, ma il nocciolo meglio tritato 🥑",
+    "🍌 Non buttare le banane intere: spezzettale! Aiuta la decomposizione ✊",
+    "🌧️ Mescola spesso il compost per farlo respirare meglio 🔄",
+    "☀️ Tieni il compost al riparo dalla pioggia forte ☔",
+    "🪱 I lombrichi adorano i resti di frutta e verdura 🪱",
+    "🌡️ Il compost caldo è segno che sta lavorando bene 🔥",
+    "🪴 Usa il compost maturo per concimare le tue piante 🪴",
+    "♻️ Riciclare l'umido riduce le emissioni di metano in discarica 🌍",
+    "💚 Ogni kg di umido compostato salva il pianeta un po' 💚",
+    "🌱 Il compost fatto in casa è il miglior fertilizzante naturale 🌱",
+    "🗑️ Controlla sempre le regole del tuo comune per l'umido 📜",
+    "🍂 Bilancia l'umido con materiale secco (carta, foglie) ⚖️",
+    "🚰 Evita troppi liquidi nel bidone dell'umido 🚰",
+    "🪰 Per evitare odori, copri i rifiuti umidi con carta o foglie 🪰",
+    "🧴 Non mettere plastica biodegradabile se non certificata OK Compost 🧴",
+    "🛍️ Usa sacchetti certificati compostabili per l'umido 🛍️",
+    "🌸 I petali di fiori recisi sono bellissimi nel compost 🌸",
+    "🍁 Le foglie autunnali sono ottime per coprire l'umido 🍁",
+    "🪴 Il compost aiuta a trattenere l'acqua nel terreno 💧",
+    "🌍 Compostare è un piccolo gesto per un grande impatto 🌍",
+    "🪴 Regala il tuo compost agli amici con l'orto 🎁",
+    "🍌 Le bucce di banana attirano farfalle nel compost 🦋",
+    "🥚 I gusci d'uovo tritati tengono lontane le lumache 🐌",
+    "☕️ I fondi di caffè acidificano il terreno (perfetti per ortensie!) 💙",
+    "🍞 Il pane vecchio attira microrganismi utili 🦠",
+    "🥬 Le verdure crucifere (cavoli) rilasciano azoto prezioso 🥬",
+    "🍊 Le bucce di agrumi tengono lontani gli insetti molesti 🦟",
+    "🌿 Le erbe aromatiche nel compost profumano tutto 🌿",
+    "🪱 Più umido vario metti, più il compost è ricco 🪱",
+    "♻️ L'umido riciclato diventa energia e concime ♻️",
+    "💪 Compostare è facile e fa bene all'ambiente 💪",
+    "🌱 Inizia oggi a separare meglio l'umido! 🌱",
+    "🎄 Anche gli aghi di pino (in piccole quantità) sono compostabili 🎄",
+    "🥀 I fiori secchi del bouquet vanno nell'umido 🥀",
+    "🧻 La carta assorbente usata per alimenti puliti è ok 🧻",
+    "🍂 L'equilibrio tra verde (umido) e marrone (secco) è la chiave ⚖️",
+    "🌍 Grazie per riciclare l'umido: stai salvando il pianeta! 🌍❤️"
+]
+
 @bot.command()
 async def plastica(ctx):
     await ctx.send("consiglio per diminuire la plastica:" + random.choice(plastica_list))
@@ -508,12 +611,13 @@ async def vetro(ctx):
 async def cartone(ctx):
     await ctx.send("consiglio per diminuire il cartone:" + random.choice(cartone_list))
 
-bot.command()
+@bot.command()
 async def consiglio(ctx):
     await ctx.send("consiglio per sostenere l'ambiente:" + random.choice(ambiente_list))
 
-
-
+bot.command()
+async def umido(ctx):
+    await ctx.send("consigli per l'umido:" + random.choice(umido_list))
 
 async def chiedi_a_ollama(prompt):
     url = "http://127.0.0.1:11434/api/generate"
@@ -578,6 +682,8 @@ async def ai(ctx, *, contenuto: str):
         )
     else:
         await ctx.send("⚠️ Non è stato possibile generare l'immagine.")
+        
 bot.run("")
+
 
 

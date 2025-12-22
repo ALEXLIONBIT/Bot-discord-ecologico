@@ -1,10 +1,10 @@
 # Bot-discord-ecologico
 
-per aprire il bot ecologico installa python e discord e anche  installare la libreria discord in python. non scordarti anche di installare requests e aiohttp.
+per aprire il bot ecologico installa python e discord e anche  installare la libreria discord in python. non scordarti anche di installare aiohttp , asyncio , diffusers , pillow e torch.     mi raccomando installa tutte le librerie
 
 
 # ATTENZIONE:
-avere ollama con modello AI gemma3:27b
+avere ollama con modello AI gemma3:12b
 
 # EVEDIENZIARE:
 mettere token nel codice e avere bot nel portal developer di discord
@@ -28,7 +28,7 @@ Rete	Connessione stabile	Necessaria per bot Discord
 
 
 
-Consigliato per Gemma3:27b
+Consigliato per Gemma3:12b
 
 6‑8 core (Intel i5/i7 o AMD equivalente)
 16‑32 GB (Gemma3:27b è grande)

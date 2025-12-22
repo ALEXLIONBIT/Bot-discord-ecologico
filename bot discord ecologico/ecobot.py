@@ -619,6 +619,10 @@ bot.command()
 async def umido(ctx):
     await ctx.send("consigli per l'umido:" + random.choice(umido_list))
 
+bot.command()
+async def lista(ctx):
+    await ctx.send("lista dei comandi disponibili sono: eco.plastica, eco.carta, eco.vetro, eco.cartone, eco.consiglio, eco.umido, eco.ai")
+
 async def chiedi_a_ollama(prompt):
     url = "http://127.0.0.1:11434/api/generate"
 
@@ -684,6 +688,7 @@ async def ai(ctx, *, contenuto: str):
         await ctx.send("⚠️ Non è stato possibile generare l'immagine.")
         
 bot.run("")
+
 
 
 

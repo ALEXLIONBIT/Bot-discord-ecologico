@@ -1,27 +1,29 @@
-from email import message
 import discord
 from discord.ext import commands
 import random
-import os
-from pymsgbox import prompt
-import requests
 import aiohttp
+import os
+import asyncio
+from diffusers import StableDiffusionPipeline
+from PIL import Image
+import torch
+
 intents = discord.Intents.default()
 intents.message_content = True 
 bot = commands.Bot(command_prefix="eco.", intents=intents)
 
-#questo è un bot ecologico con comandi per la differienziata no sus no meme , nella lista ci devono essere i comandi del bot
-@bot.command()
-async def lista(ctx):
-    await ctx.send(
-        "📜 **Comandi disponibili:**\n"
-        "• eco.lista\n"
-        "• eco.consigli\n"
-        "• eco.plastica\n"
-        "• eco.vetro\n"
-        "• eco.ai <domanda alla AI>\n"
-        "• eco.carta"
+try:
+    pipe = StableDiffusionPipeline.from_pretrained(
+        "CompVis/stable-diffusion-v1-4",  
+        torch_dtype=torch.float32 if not torch.cuda.is_available() else torch.float16,
+        safety_checker=None  
     )
+    pipe = pipe.to("cpu" if not torch.cuda.is_available() else "cuda")  
+    print("Stable Diffusion pipeline caricata con successo!")
+except Exception as e:
+    print(f"Errore caricamento Stable Diffusion: {e}")
+
+
 
 ambiente_list = [
     "💡 Spegni le luci quando non servono",
@@ -112,9 +114,7 @@ ambiente_list = [
     "🚱 Bevi acqua del rubinetto",
     "🌍 Ricorda che ogni gesto conta 💚"
 ]
-@bot.command()
-async def consigli(ctx):
-    await ctx.send("facendo questo aiuti l'ambiente: " + random.choice(ambiente_list))
+
 
 plastica_list = [
     "🚫🥤 Evita bottiglie di plastica monouso",
@@ -184,9 +184,7 @@ plastica_list = [
     "💚 Ogni scelta senza plastica conta"
 ]
 
-@bot.command()
-async def plastica(ctx):
-    await ctx.send("Ecco un consiglio per ridurre la plastica: " + random.choice(plastica_list))
+
 
 vetro_list = [
     "🚫🥤 Evita bottiglie di plastica monouso",
@@ -256,9 +254,7 @@ vetro_list = [
     "💚 Ogni scelta senza plastica conta"
 ]
 
-@bot.command()
-async def vetro(ctx):
-    await ctx.send("Ecco un consiglio per ridurre il vetro: " + random.choice(vetro_list))
+
 carta_list = [
     "📄 Riduci l’uso della carta",
     "📝 Scrivi solo quando necessario",
@@ -382,71 +378,206 @@ carta_list = [
 ]
 
 
-    
+cartone_list = [
+    "📦 Riutilizza scatole di cartone per spedizioni",
+    "📦 Piega le scatole prima di riciclarle",
+    "♻️ Separare cartone da altri rifiuti",
+    "📦 Usa cartone per organizzare oggetti in casa",
+    "🖼️ Trasforma scatole in contenitori creativi",
+    "📦 Imballaggi: preferisci cartone riciclato",
+    "🖌️ Usa cartone per lavoretti creativi",
+    "📦 Riusa scatole per archiviazione documenti",
+    "♻️ Ricicla correttamente il cartone ondulato",
+    "📦 Riusa cartoni per traslochi",
+    "📝 Usa cartone come base per appunti o schizzi",
+    "📦 Cartone come protezione per mobili",
+    "♻️ Cartoni da imballaggio: taglia e ricicla",
+    "📦 Riutilizza scatole per conservare vestiti",
+    "🖌️ Fai arte con cartone riciclato",
+    "📦 Riutilizza scatole per regali",
+    "♻️ Cartone dei pacchi: separa nastro adesivo",
+    "📦 Cartoni come supporto per piante",
+    "🖼️ Crea scaffali o contenitori con cartone",
+    "📦 Riusa cartone per spedizioni personali",
+    "♻️ Cartoni di pizza: compostabili se non unti",
+    "📦 Conserva scatole per giochi dei bambini",
+    "🖌️ Crea decorazioni con cartone usato",
+    "📦 Riusa cartone per organizzare cassetti",
+    "♻️ Cartone: taglia e piega prima del riciclo",
+    "📦 Riutilizza scatole per hobby e bricolage",
+    "🖌️ Cartone per collage o disegni",
+    "📦 Riutilizza cartone come divisori",
+    "♻️ Cartone pulito: riciclabile al 100%",
+    "📦 Cartoni: conservare libri o oggetti fragili",
+    "🖌️ Cartone per lavoretti scolastici",
+    "📦 Riusa scatole per spedire pacchi",
+    "♻️ Separare cartone dai rifiuti misti",
+    "📦 Cartone: riutilizza per archiviazione",
+    "🖼️ Trasforma scatole in supporti per disegni",
+    "📦 Cartone per organizzare armadi",
+    "♻️ Ricicla scatole di cartone ondulato",
+    "📦 Riutilizza scatole come contenitori gioco",
+    "🖌️ Crea oggetti decorativi con cartone",
+    "📦 Scatole come protezione in traslochi",
+    "♻️ Cartone pulito e asciutto: riciclabile",
+    "📦 Riusa cartone per spedizioni sicure",
+    "🖌️ Cartone come base per pittura",
+    "📦 Conserva cartoni per archiviazione",
+    "♻️ Ricicla il cartone ondulato separatamente",
+    "📦 Cartone come divisorio per scaffali",
+    "🖌️ Crea oggetti artigianali con cartone",
+    "📦 Riutilizza scatole per regali",
+    "♻️ Separare nastro adesivo prima del riciclo",
+    "📦 Riusa scatole come contenitori per attrezzi",
+    "🖌️ Cartone per lavoretti creativi dei bambini",
+    "📦 Cartoni: organizzare materiali da ufficio",
+    "♻️ Cartone dei pacchi: riciclabile solo pulito",
+    "📦 Riutilizza cartoni per spedizioni",
+    "🖌️ Crea supporti e stand con cartone riciclato",
+    "📦 Cartone per protezione pavimenti",
+    "♻️ Taglia cartoni grandi prima del riciclo",
+    "📦 Riusa cartoni come contenitori per vestiti",
+    "🖌️ Cartone per progetti scolastici",
+    "📦 Scatole come divisori per armadi",
+    "♻️ Ricicla cartoni ondulati separatamente",
+    "📦 Riutilizza cartone per hobby e bricolage",
+    "🖌️ Lavoretti artistici con cartone riciclato",
+    "📦 Cartoni come protezione fragile",
+    "♻️ Mantieni cartone pulito e asciutto",
+    "📦 Riusa scatole per spedizioni sicure",
+    "🖌️ Cartone per collage e pittura",
+    "📦 Conserva cartoni per organizzare casa",
+    "♻️ Ricicla scatole solo pulite",
+    "📦 Cartone come divisorio scaffali",
+    "🖌️ Crea oggetti decorativi con cartone",
+    "📦 Riutilizza cartoni per regali",
+    "♻️ Taglia cartone e separa adesivi prima del riciclo",
+    "📦 Riusa scatole per attrezzi o materiali",
+    "🖌️ Lavoretti creativi con cartone dei bambini",
+    "📦 Cartoni come organizzatori da ufficio",
+    "♻️ Cartone da pacchi: riciclare pulito",
+    "📦 Riusa cartoni per spedizioni",
+    "🖌️ Supporti e stand con cartone riciclato",
+    "📦 Cartone per protezione pavimenti",
+    "♻️ Taglia cartone prima del riciclo",
+    "📦 Riusa cartoni per vestiti",
+    "🖌️ Progetti scolastici con cartone",
+    "📦 Scatole come divisori",
+    "♻️ Ricicla cartoni ondulati separatamente",
+    "📦 Riutilizza per bricolage",
+    "🖌️ Lavoretti artistici",
+    "📦 Protezione oggetti fragili",
+    "♻️ Mantieni cartone asciutto",
+    "📦 Riusa per spedizioni sicure",
+    "🖌️ Collage e pittura",
+    "📦 Organizza casa con cartoni",
+    "♻️ Ricicla solo cartone pulito",
+    "📦 Divisori scaffali con cartone",
+    "🖌️ Crea decorazioni con cartone",
+    "📦 Riutilizza per regali",
+    "♻️ Separare adesivi e plastica prima del riciclo",
+    "📦 Contenitori per attrezzi",
+    "🖌️ Lavoretti creativi",
+    "📦 Organizzatori da ufficio",
+    "♻️ Cartoni da pacchi puliti sono riciclabili",
+    "📦 Riusa cartoni per spedizioni",
+    "🖌️ Supporti e stand fai-da-te",
+    "📦 Proteggi pavimenti e oggetti",
+    "♻️ Taglia cartone prima del riciclo",
+    "📦 Contenitori per vestiti o giocattoli",
+    "🖌️ Progetti scolastici con cartone",
+    "📦 Scatole come divisori",
+    "♻️ Ricicla correttamente i cartoni",
+    "📦 Riutilizzo creativo per casa",
+    "🖌️ Lavoretti artistici con cartone"
+]
+
+@bot.command()
+async def plastica(ctx):
+    await ctx.send("consiglio per diminuire la plastica:" + random.choice(plastica_list))
 
 @bot.command()
 async def carta(ctx):
-    await ctx.send("Ecco un consiglio per ridurre la carta: " + random.choice(carta_list))
+    await ctx.send("consiglio per diminuire la carta:" + random.choice(carta_list))
+
+@bot.command()
+async def vetro(ctx):
+    await ctx.send("consiglio per diminuire il vetro:" + random.choice(vetro_list))
+
+@bot.command()
+async def cartone(ctx):
+    await ctx.send("consiglio per diminuire il cartone:" + random.choice(cartone_list))
+
+bot.command()
+async def consiglio(ctx):
+    await ctx.send("consiglio per sostenere l'ambiente:" + random.choice(ambiente_list))
+
+
+
 
 async def chiedi_a_ollama(prompt):
-    url = "http://localhost:11434/api/generate"
-    data = {
-        "model": "gemma3:27b",
-        "prompt": prompt,
-        "stream": False,
-        "options": {
-            "num_predict": 200
-        }
-    }
+    url = "http://127.0.0.1:11434/api/generate"
 
-    timeout = aiohttp.ClientTimeout(total=120)
+    payload = {"model": "gemma3:12b", "prompt": prompt, "stream": False}
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.post(url, json=payload) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    return data.get("response", "Errore: Ollama ha restituito un formato vuoto.")
+                return f"Ollama ha risposto con errore: {resp.status}"
+    except Exception as e:
+        return f"Errore di connessione a Ollama: {e}"
 
-    async with aiohttp.ClientSession(timeout=timeout) as session:
-        async with session.post(url, json=data) as resp:
-            result = await resp.json()
-            return result["response"]
+async def genera_immagine(prompt: str) -> str | None:
+    try:
+        loop = asyncio.get_event_loop()
 
-@bot.event
-async def on_ready():
-    print(f"Bot connesso come {bot.user}")
+        image = await loop.run_in_executor(
+            None,
+            lambda: pipe(
+                prompt,
+                num_inference_steps=10,
+                guidance_scale=7.5
+            ).images[0]
+        )
 
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
+        os.makedirs("output", exist_ok=True)
+        path = "output/immagine_sd.png"
+        image.save(path)
 
-    if message.content.startswith("eco.ai"):
-        testo = message.content[len("eco.ai"):].strip()
+        return path
 
-        if not testo:
-            await message.channel.send(
-                "❌ Devi scrivere qualcosa dopo `eco.ai`\n"
-                "👉 Esempio:\n"
-                "`eco.ai Dammi 5 consigli per ridurre la plastica`"
-            )
-            return
-
-        await message.channel.send("🤖 Sto pensando...")
-        prompt_eco = f"Sei un assistente esperto di ecologia e riciclo. Devi rispondere sempre e solo con consigli, spiegazioni o informazioni legate a riduzione dei rifiuti, riciclo, risparmio energetico, sostenibilità, uso responsabile della plastica, vetro, carta e materiali vari. Rispondi alla seguente richiesta dell'utente: \"{testo}\". ⚠️ Regole: non parlare di altro al di fuori di ecologia e riciclo, interpreta richieste generiche per dare consigli pratici, usa emoji quando appropriato, fornisci consigli passo-passo o esempi concreti."
+    except Exception as e:
+        print("❌ Errore Stable Diffusion:", e)
+        return None
 
 
-        try:
-            risposta = await chiedi_a_ollama(prompt_eco)
-        except Exception as e:
-            await message.channel.send("❌ Errore nel contattare Ollama")
-            print(e)
-            return
+
+@bot.command(name="ai")
+async def ai(ctx, *, contenuto: str):
+    msg = await ctx.send("🤖 **L'AI ECO** sta elaborando la tua richiesta...")
 
 
-        if not risposta or not risposta.strip():
-            await message.channel.send("⚠️ Ollama non ha restituito una risposta.")
-            return
+    risposta_testo = await chiedi_a_ollama(
+        f"Rispondi brevemente e in modo ecologico a: {contenuto}"
+    )
 
+    prompt_visivo = await chiedi_a_ollama(
+        f"Crea un prompt breve in inglese per un'immagine realistica ed ecologica basata su: {contenuto}. Scrivi solo il prompt, niente altro."
+    )
 
-        for i in range(0, len(risposta), 1900):
-            await message.channel.send(risposta[i:i+1900])
+    await msg.edit(content=f"**ECO ai dice:** {risposta_testo}")
 
+    img_path = await genera_immagine(prompt_visivo)
 
-    await bot.process_commands(message)
+    if img_path:
+        await ctx.send(
+            content="🖼️ Ecco l'immagine generata:",
+            file=discord.File(img_path)
+        )
+    else:
+        await ctx.send("⚠️ Non è stato possibile generare l'immagine.")
 bot.run("")
+
 
